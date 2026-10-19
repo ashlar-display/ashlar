@@ -7,8 +7,8 @@ description = "A display connection stack in Rust: EDID parsing, HDMI 2.1 mode n
 readme = "README.md"
 license = "MPL-2.0"
 repository = "https://github.com/ashlar-display/ashlar"
-homepage = "https://github.com/ashlar-display"
-keywords = ["hdmi", "edid", "display", "frl", "no-std"]
+homepage = "https://ashlar-display.org"
+keywords = ["ashlar", "hdmi", "no-std", "edid", "display"]
 categories = ["hardware-support", "embedded", "no-std"]
 
 [package.metadata.docs.rs]

@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   publish with SLSA provenance and crates.io trusted publishing), matching the other
   crates in the stack.
 
+### Changed
+
+- **Points to the Ashlar website.** `homepage`, the README and the crate documentation link
+  to [ashlar-display.org](https://ashlar-display.org) instead of the GitHub organisation.
+  Keywords are aligned with the rest of the stack: `ashlar` is added, `frl` is dropped.
+
 ## [0.1.0] - 2026-10-19
 
 ### Added

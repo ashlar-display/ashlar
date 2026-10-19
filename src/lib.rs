@@ -29,7 +29,7 @@
 //! `full` enables every crate. `std` (default) and `alloc` are forwarded to the enabled crates
 //! that have them; disable default features for `no_std` use.
 //!
-//! See the [Ashlar organisation](https://github.com/ashlar-display) for the full stack.
+//! See the [Ashlar website](https://ashlar-display.org) for the full stack.
 
 #![no_std]
 #![forbid(unsafe_code)]
