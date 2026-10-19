@@ -20,7 +20,7 @@ ashlar = { version = "0.1", features = ["piaf", "concordance"] }
 `full` enables every crate. `std` (default) and `alloc` are forwarded to the enabled crates
 that have them; disable default features for `no_std` use.
 
-See the [Ashlar organisation](https://github.com/ashlar-display) for the full stack, the
-individual crates, and the design principles.
+See the [Ashlar website](https://ashlar-display.org) for the full stack, the individual
+crates, and the design principles.
 
 Licensed under MPL-2.0.
