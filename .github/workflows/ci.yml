@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  # Not main: the only PRs into main are release-tag's release-promote/* PRs,
+  # whose content already passed CI on develop. Opened by github-actions[bot],
+  # their runs would be held for approval and end as action_required/failure.
+  pull_request:
+    branches: [develop]
+
+env:
+  CARGO_TERM_COLOR: always
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install stable toolchain
+        uses: dtolnay/rust-toolchain@683b588c487a69d01f6c6ddf40f036ff682cc2c8 # v1
+        with:
+          toolchain: stable
+          components: rustfmt, clippy
+          targets: thumbv7em-none-eabi
+
+      - name: Cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-
+
+      - name: Format check
+        run: cargo fmt --check
+
+      - name: Clippy
+        run: cargo clippy --locked --all-features -- -D warnings
+
+      - name: Docs
+        run: cargo rustdoc --locked --all-features -- -D missing_docs
+
+      - name: Test
+        run: cargo test --locked --all-features
+
+      # Every stack crate is an optional feature; each must build on its own.
+      - name: Build (each feature)
+        run: |
+          for FEATURE in $(cargo metadata --no-deps --format-version 1 \
+              | jq -r '.packages[0].features | keys[] | select(. != "default" and . != "std" and . != "alloc" and . != "full")'); do
+            echo "::group::$FEATURE"
+            cargo build --locked --features "$FEATURE"
+            echo "::endgroup::"
+          done
+
+      # piaf is left out: piaf 0.4.2 depends on display-types and thiserror with their
+      # default (std) features, so it does not build for a no_std target.
+      - name: Build (no_std)
+        run: >-
+          cargo build --locked --no-default-features --target thumbv7em-none-eabi
+          --features display-types,concordance,cartouche,culvert,culvert-async,plumbob,plumbob-async,hdmi-hal,hdmi-hal-async
