@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Points to the Ashlar website.** `homepage`, the README and the crate documentation link
   to [ashlar-display.org](https://ashlar-display.org) instead of the GitHub organisation.
   Keywords are aligned with the rest of the stack: `ashlar` is added, `frl` is dropped.
+- **Inherit license file.** The license file is removed and inherited from https://github.com/ashlar-display/.github
 
 ## [0.1.0] - 2026-10-19
 
