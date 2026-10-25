@@ -14,7 +14,7 @@ pulls in exactly the layers you need:
 
 ```toml
 [dependencies]
-ashlar = { version = "0.1", features = ["piaf", "concordance"] }
+ashlar = { version = "0.2", features = ["piaf", "concordance"] }
 ```
 
 `full` enables every crate. `std` (default) and `alloc` are forwarded to the enabled crates
