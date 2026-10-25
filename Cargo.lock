@@ -71,6 +71,7 @@ checksum = "be4bd1f36b28e901afa9acb76ecb7d294239bb6d44d9e88b1844169b0fe47135"
 dependencies = [
  "display-types",
  "hdmi-hal",
+ "plumbob",
 ]
 
 [[package]]
@@ -81,6 +82,7 @@ checksum = "50054ddede8294db1d1b48c2f64c6afc40e3b0bf8d66a8b7d6b2b404a5bff586"
 dependencies = [
  "culvert",
  "hdmi-hal-async",
+ "plumbob-async",
 ]
 
 [[package]]

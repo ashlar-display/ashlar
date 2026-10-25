@@ -33,6 +33,10 @@ alloc = [
     "plumbob?/alloc",
     "plumbob-async?/alloc",
 ]
+# With culvert enabled too, culvert's `Scdc` drives plumbob's `FrlTrainer` (and
+# culvert-async's drives plumbob-async's).
+plumbob = ["dep:plumbob", "culvert?/plumbob"]
+plumbob-async = ["dep:plumbob-async", "culvert-async?/plumbob-async"]
 full = [
     "display-types",
     "piaf",

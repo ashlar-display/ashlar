@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **`culvert` and `plumbob` together now connect.** Enabling both features turns on
+  culvert's `plumbob` feature, so culvert's `Scdc` implements plumbob's `ScdcClient` and
+  can be handed to `FrlTrainer`; before, it could not without naming culvert directly.
+  `culvert-async` and `plumbob-async` likewise.
+
 ## [0.2.0] - 2026-10-25
 
 ### Breaking changes
