@@ -9,7 +9,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! ashlar = { version = "0.1", features = ["piaf", "concordance"] }
+//! ashlar = { version = "0.2", features = ["piaf", "concordance"] }
 //! ```
 //!
 //! | Feature | Crate | Layer |
