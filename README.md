@@ -18,7 +18,9 @@ ashlar = { version = "0.2", features = ["piaf", "concordance"] }
 ```
 
 `full` enables every crate. `std` (default) and `alloc` are forwarded to the enabled crates
-that have them; disable default features for `no_std` use.
+that have them; disable default features for `no_std` use. With `culvert` and `plumbob`
+both enabled, culvert's `Scdc` implements plumbob's `ScdcClient`, so it drives
+`FrlTrainer` directly; the same holds for `culvert-async` and `plumbob-async`.
 
 See the [Ashlar website](https://ashlar-display.org) for the full stack, the individual
 crates, and the design principles.
