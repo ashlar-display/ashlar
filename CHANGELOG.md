@@ -7,6 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-03
+
+### Breaking changes
+
+- **display-types 0.5 across the stack.** The re-exported crates move to releases that
+  agree on one display-types, so values pass from one layer to the next (piaf →
+  concordance → cartouche → culvert → plumbob); with display-types 0.4.3 for some layers
+  and 0.5 for others, rustc saw two `HdmiForumFrl` types. Across a breaking version:
+  display-types 0.5 (DTD sources name their block, `VideoMode::h_blank`, the preferred
+  timing), piaf 0.6 (new warnings and decode options; see its 0.5.0 and 0.6.0 entries) and
+  concordance 0.3 (the FRL capacity check in the default rules). hdmi-hal-i2c-dev goes to
+  0.4.0 with no API change. The rest are patch releases that accept display-types 0.5:
+  cartouche 0.3.1, culvert 0.3.1, culvert-async 0.3.1, plumbob 0.4.1, plumbob-async 0.3.1,
+  hdmi-hal 0.6.1 and hdmi-hal-async 0.3.1. Each crate's changelog has the details and the
+  migration. Code that names these crates both directly and through `ashlar` moves them
+  together.
+
+### Fixed
+
+- **The `piaf` feature builds without `std`.** piaf 0.4.2 took display-types and
+  thiserror with their default features, so `ashlar` with `piaf` and no default features
+  failed on a `no_std` target; piaf 0.5 fixed that.
+
+- **`culvert` and `plumbob` together now connect.** Enabling both features turns on
+  culvert's `plumbob` feature, so culvert's `Scdc` implements plumbob's `ScdcClient` and
+  can be handed to `FrlTrainer`; before, it could not without naming culvert directly.
+  `culvert-async` and `plumbob-async` likewise.
+
+### Internal
+
+- **CI builds `piaf` for `thumbv7em-none-eabi`** with the other `no_std` features, in
+  `ci.yml` and in the verify job of `publish.yml`; it was left out while piaf needed `std`.
+
 ## [0.2.0] - 2026-10-25
 
 ### Breaking changes

@@ -59,9 +59,7 @@ jobs:
             echo "::endgroup::"
           done
 
-      # piaf is left out: piaf 0.4.2 depends on display-types and thiserror with their
-      # default (std) features, so it does not build for a no_std target.
       - name: Build (no_std)
         run: >-
           cargo build --locked --no-default-features --target thumbv7em-none-eabi
-          --features display-types,concordance,cartouche,culvert,culvert-async,plumbob,plumbob-async,hdmi-hal,hdmi-hal-async
+          --features display-types,piaf,concordance,cartouche,culvert,culvert-async,plumbob,plumbob-async,hdmi-hal,hdmi-hal-async

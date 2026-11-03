@@ -9,7 +9,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! ashlar = { version = "0.2", features = ["piaf", "concordance"] }
+//! ashlar = { version = "0.3", features = ["piaf", "concordance"] }
 //! ```
 //!
 //! | Feature | Crate | Layer |
@@ -27,7 +27,9 @@
 //! | `hdmi-hal-i2c-dev` | [`hdmi_hal_i2c_dev`] | Linux userspace backend over `/dev/i2c-N` |
 //!
 //! `full` enables every crate. `std` (default) and `alloc` are forwarded to the enabled crates
-//! that have them; disable default features for `no_std` use.
+//! that have them; disable default features for `no_std` use. With `culvert` and `plumbob`
+//! both enabled, culvert's `Scdc` implements plumbob's `ScdcClient`, so it drives
+//! `FrlTrainer` directly; the same holds for `culvert-async` and `plumbob-async`.
 //!
 //! See the [Ashlar website](https://ashlar-display.org) for the full stack.
 
