@@ -3,7 +3,7 @@ name = "ashlar"
 version = "0.3.0"
 edition = "2024"
 rust-version = "1.85"
-description = "A display connection stack in Rust: EDID parsing, HDMI 2.1 mode negotiation, InfoFrames, SCDC and FRL link training"
+description = "A display connection stack in Rust: EDID parsing, HDMI 2.1 mode negotiation, InfoFrames, SCDC, FRL link training and TMDS link parameters"
 readme = "README.md"
 license = "MPL-2.0"
 repository = "https://github.com/ashlar-display/ashlar"
@@ -37,6 +37,10 @@ alloc = [
 # culvert-async's drives plumbob-async's).
 plumbob = ["dep:plumbob", "culvert?/plumbob"]
 plumbob-async = ["dep:plumbob-async", "culvert-async?/plumbob-async"]
+# With display-types enabled too, spiritlevel's sink facts convert from display-types'
+# `HdmiForumSinkCap`.
+display-types = ["dep:display-types", "spiritlevel?/display-types"]
+spiritlevel = ["dep:spiritlevel"]
 full = [
     "display-types",
     "piaf",
@@ -46,6 +50,7 @@ full = [
     "culvert-async",
     "plumbob",
     "plumbob-async",
+    "spiritlevel",
     "hdmi-hal",
     "hdmi-hal-async",
     "hdmi-hal-i2c-dev",
@@ -60,6 +65,7 @@ culvert = { version = "0.3.1", optional = true, default-features = false }
 culvert-async = { version = "0.3.1", optional = true, default-features = false }
 plumbob = { version = "0.4.1", optional = true, default-features = false }
 plumbob-async = { version = "0.3.1", optional = true, default-features = false }
+spiritlevel = { version = "0.1.0", optional = true, default-features = false }
 hdmi-hal = { version = "0.6.1", optional = true, default-features = false }
 hdmi-hal-async = { version = "0.3.1", optional = true, default-features = false }
 hdmi-hal-i2c-dev = { version = "0.4.0", optional = true }

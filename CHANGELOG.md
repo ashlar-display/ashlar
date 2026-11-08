@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **`spiritlevel` feature** — re-exports [spiritlevel](https://github.com/ashlar-display/spiritlevel)
+  0.1, which chooses a TMDS link: the bit clock ratio, scrambling and the sink's
+  `TMDS_Config`. With `display-types` enabled too, its `SinkTmdsFacts` converts from
+  `HdmiForumSinkCap`. Part of `full`, and of the `no_std` build in CI.
+
 ## [0.3.0] - 2026-11-03
 
 ### Breaking changes

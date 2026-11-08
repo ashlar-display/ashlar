@@ -4,8 +4,8 @@
 
 Ashlar takes a display link from raw capability bytes to a trained link: parse what the
 sink can do, negotiate the best mode the source, sink and cable can all carry, describe it
-in InfoFrames, and bring up the link over SCDC with FRL training. Each layer is its own
-crate — use one, or use them all.
+in InfoFrames, and bring up the link over SCDC, with FRL training or over TMDS. Each layer
+is its own crate — use one, or use them all.
 
 ## This crate
 
@@ -20,7 +20,9 @@ ashlar = { version = "0.3", features = ["piaf", "concordance"] }
 `full` enables every crate. `std` (default) and `alloc` are forwarded to the enabled crates
 that have them; disable default features for `no_std` use. With `culvert` and `plumbob`
 both enabled, culvert's `Scdc` implements plumbob's `ScdcClient`, so it drives
-`FrlTrainer` directly; the same holds for `culvert-async` and `plumbob-async`.
+`FrlTrainer` directly; the same holds for `culvert-async` and `plumbob-async`. With
+`display-types` and `spiritlevel` both enabled, spiritlevel's `SinkTmdsFacts` converts from
+display-types' `HdmiForumSinkCap`.
 
 See the [Ashlar website](https://ashlar-display.org) for the full stack, the individual
 crates, and the design principles.

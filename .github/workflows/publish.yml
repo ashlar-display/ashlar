@@ -106,7 +106,7 @@ jobs:
       - name: Build (no_std)
         run: >-
           cargo build --locked --no-default-features --target thumbv7em-none-eabi
-          --features display-types,piaf,concordance,cartouche,culvert,culvert-async,plumbob,plumbob-async,hdmi-hal,hdmi-hal-async
+          --features display-types,piaf,concordance,cartouche,culvert,culvert-async,plumbob,plumbob-async,spiritlevel,hdmi-hal,hdmi-hal-async
 
   # What is about to be released, shown on the run page while the publish job
   # waits for approval in the `release` environment. Packages the crate the same

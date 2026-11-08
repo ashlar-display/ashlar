@@ -2,7 +2,7 @@
 //!
 //! Ashlar takes a display link from raw capability bytes to a trained link: parse what the
 //! sink can do, negotiate the best mode the source, sink and cable can all carry, describe it
-//! in InfoFrames, and bring up the link over SCDC with FRL training.
+//! in InfoFrames, and bring up the link over SCDC, with FRL training or over TMDS.
 //!
 //! Each layer is its own crate and can be used on its own. This crate re-exports them behind
 //! one feature per crate, so a single dependency can pull in exactly the layers you need:
@@ -22,6 +22,7 @@
 //! | `culvert-async` | [`culvert_async`] | Async companion to culvert |
 //! | `plumbob` | [`plumbob`] | FRL link training |
 //! | `plumbob-async` | [`plumbob_async`] | Async companion to plumbob |
+//! | `spiritlevel` | [`spiritlevel`] | TMDS link parameters: clock ratio, scrambling, the sink's `TMDS_Config` |
 //! | `hdmi-hal` | [`hdmi_hal`] | `ScdcTransport` and `HdmiPhy` traits |
 //! | `hdmi-hal-async` | [`hdmi_hal_async`] | Async companion to hdmi-hal |
 //! | `hdmi-hal-i2c-dev` | [`hdmi_hal_i2c_dev`] | Linux userspace backend over `/dev/i2c-N` |
@@ -29,7 +30,9 @@
 //! `full` enables every crate. `std` (default) and `alloc` are forwarded to the enabled crates
 //! that have them; disable default features for `no_std` use. With `culvert` and `plumbob`
 //! both enabled, culvert's `Scdc` implements plumbob's `ScdcClient`, so it drives
-//! `FrlTrainer` directly; the same holds for `culvert-async` and `plumbob-async`.
+//! `FrlTrainer` directly; the same holds for `culvert-async` and `plumbob-async`. With
+//! `display-types` and `spiritlevel` both enabled, spiritlevel's `SinkTmdsFacts` converts
+//! from display-types' `HdmiForumSinkCap`.
 //!
 //! See the [Ashlar website](https://ashlar-display.org) for the full stack.
 
@@ -59,6 +62,9 @@ pub use plumbob;
 
 #[cfg(feature = "plumbob-async")]
 pub use plumbob_async;
+
+#[cfg(feature = "spiritlevel")]
+pub use spiritlevel;
 
 #[cfg(feature = "hdmi-hal")]
 pub use hdmi_hal;
