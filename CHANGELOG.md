@@ -13,6 +13,49 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   0.1, which chooses a TMDS link: the bit clock ratio, scrambling and the sink's
   `TMDS_Config`. With `display-types` enabled too, its `SinkTmdsFacts` converts from
   `HdmiForumSinkCap`. Part of `full`, and of the `no_std` build in CI.
+- **docs.rs marks each re-exported crate with the feature that enables it** (the `doc_cfg`
+  badge, enabled only in docs.rs builds).
+
+### Changed
+
+- **crates.io lists `ashlar` under `no-std::no-alloc`** as well: with default features off
+  it builds without an allocator, as its re-exported crates do.
+
+### Internal
+
+- **The published `.crate` holds only what the crate needs**: `include` in `Cargo.toml`
+  limits it to the sources, `doc/`, the README, changelog and license; it also shipped the
+  CI workflows, Dependabot configuration and `.gitignore`.
+- **`#![deny(missing_docs)]` in `lib.rs`**: an undocumented public item fails a local
+  build, not only CI's rustdoc step.
+- **The documentation is built as docs.rs builds it, weekly**: `docs.yml` runs
+  `cargo doc --all-features` with nightly and `--cfg docsrs` (and `-D warnings`), so a
+  nightly change to the `doc_cfg` feature badges shows up before it breaks a docs.rs build.
+- **The README follows the stack's crate layout**: Usage, a table of the features and the
+  crates they enable, `no_std` builds, Out of scope, Documentation, Verifying releases
+  (with this crate's release history) and License. Its Rust examples, if it gains any, run
+  as doctests (`ReadmeDoctests` in `lib.rs`).
+- **CI runs with a read-only token**: `ci.yml` sets `permissions: contents: read`; its jobs
+  ran with the repository's default token permissions.
+- **CI's test job does not keep the checkout's git credentials** (`persist-credentials:
+  false`); it never pushes.
+- **CI fails on a `[patch]` section in `Cargo.toml`**, on `main` and in the publish
+  workflow's `verify` job: `cargo package` drops it, so a release built with one would not
+  build from crates.io.
+- **Clippy lints all targets, with every feature and with none**, in CI and in the
+  publish workflow's `verify` job; it linted only the library, with every feature.
+- **rustdoc runs with `-D warnings`**, as docs.rs builds, in CI and in the publish
+  workflow's `verify` job: `-D missing_docs` alone let broken intra-doc links through.
+- **The MSRV is checked**: an `MSRV` job in CI and in the publish workflow (which waits for
+  it) runs the tests with every feature and the `no_std` build of every crate that has one
+  on the `rust-version` from `Cargo.toml` (1.85) with `cargo msrv verify`; the crate
+  declared it, and nothing checked it.
+- **`CONTRIBUTING.md` and `doc/setup.md`**: how to contribute (and where a change to a
+  re-exported crate belongs), the checks CI runs, building each feature on its own, the
+  `no_std` build, the MSRV check, and how a crate's release reaches `ashlar`.
+- **The README and `doc/setup.md` say what is required and tested**: a release requires a
+  semver-compatible version range of each crate, not one version, and `cargo test` compiles
+  every feature (there are no tests of its own yet).
 
 ## [0.3.0] - 2026-11-03
 

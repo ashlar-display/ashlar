@@ -37,7 +37,9 @@
 //! See the [Ashlar website](https://ashlar-display.org) for the full stack.
 
 #![no_std]
+#![cfg_attr(docsrs, feature(doc_cfg))]
 #![forbid(unsafe_code)]
+#![deny(missing_docs)]
 
 #[cfg(feature = "display-types")]
 pub use display_types;
@@ -74,3 +76,8 @@ pub use hdmi_hal_async;
 
 #[cfg(feature = "hdmi-hal-i2c-dev")]
 pub use hdmi_hal_i2c_dev;
+
+// Compiles and runs the README's examples as doctests.
+#[cfg(doctest)]
+#[doc = include_str!("../README.md")]
+struct ReadmeDoctests;
