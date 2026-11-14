@@ -16,6 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **docs.rs marks each re-exported crate with the feature that enables it** (the `doc_cfg`
   badge, enabled only in docs.rs builds).
 
+### Changed
+
+- **crates.io lists `ashlar` under `no-std::no-alloc`** as well: with default features off
+  it builds without an allocator, as its re-exported crates do.
+
 ### Internal
 
 - **The published `.crate` holds only what the crate needs**: `include` in `Cargo.toml`
@@ -48,6 +53,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **`CONTRIBUTING.md` and `doc/setup.md`**: how to contribute (and where a change to a
   re-exported crate belongs), the checks CI runs, building each feature on its own, the
   `no_std` build, the MSRV check, and how a crate's release reaches `ashlar`.
+- **The README and `doc/setup.md` say what is required and tested**: a release requires a
+  semver-compatible version range of each crate, not one version, and `cargo test` compiles
+  every feature (there are no tests of its own yet).
 
 ## [0.3.0] - 2026-11-03
 

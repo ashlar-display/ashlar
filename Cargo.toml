@@ -9,7 +9,7 @@ license = "MPL-2.0"
 repository = "https://github.com/ashlar-display/ashlar"
 homepage = "https://ashlar-display.org"
 keywords = ["ashlar", "hdmi", "no-std", "edid", "display"]
-categories = ["hardware-support", "embedded", "no-std"]
+categories = ["hardware-support", "embedded", "no-std", "no-std::no-alloc"]
 include = ["src/**", "doc/**", "README.md", "CHANGELOG.md", "LICENSE"]
 
 [package.metadata.docs.rs]

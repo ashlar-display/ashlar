@@ -18,7 +18,8 @@ ashlar = { version = "0.3", features = ["piaf", "concordance"] }
 ```
 
 Each crate is then reachable under its own name, `ashlar::piaf`, `ashlar::concordance` and
-so on, in a version compatible with the one this release of `ashlar` requires.
+so on, in the version range this release of `ashlar` requires (for example any piaf 0.6.x
+from 0.6.0).
 
 ## Features
 
@@ -54,7 +55,8 @@ target.
 - **Code of its own** — `ashlar` adds nothing to the crates it re-exports; each crate's own
   documentation describes it.
 - **Choosing versions per crate** — a release of `ashlar` requires one semver-compatible
-  version of each crate. To combine others, depend on the crates directly.
+  series of each crate (piaf 0.6.x, say). To combine others, depend on the crates
+  directly.
 
 ## Documentation
 

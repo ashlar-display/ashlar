@@ -20,7 +20,8 @@ cargo rustdoc --all-features -- -D warnings
 cargo test --all-features
 ```
 
-`ashlar` has no code of its own beyond the re-exports, so the tests are the doctests.
+`ashlar` has no code of its own beyond the re-exports and no tests yet: `cargo test` compiles
+every feature, and would run any Rust example added to the README (`ReadmeDoctests`).
 
 ## Each feature on its own
 
