@@ -14,6 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `TMDS_Config`. With `display-types` enabled too, its `SinkTmdsFacts` converts from
   `HdmiForumSinkCap`. Part of `full`, and of the `no_std` build in CI.
 
+### Internal
+
+- **The published `.crate` holds only what the crate needs**: `include` in `Cargo.toml`
+  limits it to the sources, `doc/`, the README, changelog and license; it also shipped the
+  CI workflows, Dependabot configuration and `.gitignore`.
+
 ## [0.3.0] - 2026-11-03
 
 ### Breaking changes
