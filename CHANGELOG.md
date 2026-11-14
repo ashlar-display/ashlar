@@ -26,6 +26,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **The documentation is built as docs.rs builds it, weekly**: `docs.yml` runs
   `cargo doc --all-features` with nightly and `--cfg docsrs` (and `-D warnings`), so a
   nightly change to the `doc_cfg` feature badges shows up before it breaks a docs.rs build.
+- **The README follows the stack's crate layout**: Usage, a table of the features and the
+  crates they enable, `no_std` builds, Out of scope, Documentation, Verifying releases
+  (with this crate's release history) and License. Its Rust examples, if it gains any, run
+  as doctests (`ReadmeDoctests` in `lib.rs`).
 
 ## [0.3.0] - 2026-11-03
 

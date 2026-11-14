@@ -76,3 +76,8 @@ pub use hdmi_hal_async;
 
 #[cfg(feature = "hdmi-hal-i2c-dev")]
 pub use hdmi_hal_i2c_dev;
+
+// Compiles and runs the README's examples as doctests.
+#[cfg(doctest)]
+#[doc = include_str!("../README.md")]
+struct ReadmeDoctests;
