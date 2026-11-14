@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   0.1, which chooses a TMDS link: the bit clock ratio, scrambling and the sink's
   `TMDS_Config`. With `display-types` enabled too, its `SinkTmdsFacts` converts from
   `HdmiForumSinkCap`. Part of `full`, and of the `no_std` build in CI.
+- **docs.rs marks each re-exported crate with the feature that enables it** (the `doc_cfg`
+  badge, enabled only in docs.rs builds).
 
 ### Internal
 
@@ -21,6 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   CI workflows, Dependabot configuration and `.gitignore`.
 - **`#![deny(missing_docs)]` in `lib.rs`**: an undocumented public item fails a local
   build, not only CI's rustdoc step.
+- **The documentation is built as docs.rs builds it, weekly**: `docs.yml` runs
+  `cargo doc --all-features` with nightly and `--cfg docsrs` (and `-D warnings`), so a
+  nightly change to the `doc_cfg` feature badges shows up before it breaks a docs.rs build.
 
 ## [0.3.0] - 2026-11-03
 

@@ -37,6 +37,7 @@
 //! See the [Ashlar website](https://ashlar-display.org) for the full stack.
 
 #![no_std]
+#![cfg_attr(docsrs, feature(doc_cfg))]
 #![forbid(unsafe_code)]
 #![deny(missing_docs)]
 
