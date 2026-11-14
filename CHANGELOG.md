@@ -32,6 +32,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   as doctests (`ReadmeDoctests` in `lib.rs`).
 - **CI runs with a read-only token**: `ci.yml` sets `permissions: contents: read`; its jobs
   ran with the repository's default token permissions.
+- **CI's test job does not keep the checkout's git credentials** (`persist-credentials:
+  false`); it never pushes.
 
 ## [0.3.0] - 2026-11-03
 
