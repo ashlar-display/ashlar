@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [develop]
 
+# Read-only: no job here writes to the repository.
+permissions:
+  contents: read
+
 env:
   CARGO_TERM_COLOR: always
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true

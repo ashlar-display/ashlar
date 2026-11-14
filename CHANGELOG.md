@@ -30,6 +30,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   crates they enable, `no_std` builds, Out of scope, Documentation, Verifying releases
   (with this crate's release history) and License. Its Rust examples, if it gains any, run
   as doctests (`ReadmeDoctests` in `lib.rs`).
+- **CI runs with a read-only token**: `ci.yml` sets `permissions: contents: read`; its jobs
+  ran with the repository's default token permissions.
 
 ## [0.3.0] - 2026-11-03
 
