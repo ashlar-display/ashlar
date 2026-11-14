@@ -34,6 +34,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   ran with the repository's default token permissions.
 - **CI's test job does not keep the checkout's git credentials** (`persist-credentials:
   false`); it never pushes.
+- **CI fails on a `[patch]` section in `Cargo.toml`**, on `main` and in the publish
+  workflow's `verify` job: `cargo package` drops it, so a release built with one would not
+  build from crates.io.
 
 ## [0.3.0] - 2026-11-03
 
