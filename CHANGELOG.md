@@ -45,6 +45,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   it) runs the tests with every feature and the `no_std` build of every crate that has one
   on the `rust-version` from `Cargo.toml` (1.85) with `cargo msrv verify`; the crate
   declared it, and nothing checked it.
+- **`CONTRIBUTING.md` and `doc/setup.md`**: how to contribute (and where a change to a
+  re-exported crate belongs), the checks CI runs, building each feature on its own, the
+  `no_std` build, the MSRV check, and how a crate's release reaches `ashlar`.
 
 ## [0.3.0] - 2026-11-03
 
