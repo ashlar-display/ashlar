@@ -39,6 +39,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   build from crates.io.
 - **Clippy lints all targets, with every feature and with none**, in CI and in the
   publish workflow's `verify` job; it linted only the library, with every feature.
+- **rustdoc runs with `-D warnings`**, as docs.rs builds, in CI and in the publish
+  workflow's `verify` job: `-D missing_docs` alone let broken intra-doc links through.
 
 ## [0.3.0] - 2026-11-03
 
