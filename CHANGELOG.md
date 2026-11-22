@@ -7,12 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Breaking changes
+
+- **Requires the crates' releases on hdmi-hal 0.7**: hdmi-hal 0.7, hdmi-hal-async 0.4,
+  hdmi-hal-i2c-dev 0.5, plumbob 0.5, plumbob-async 0.4, culvert 0.4 and culvert-async 0.4,
+  each a breaking release (hdmi-hal's PHY trait split by link mode, `HdmiPhy` renamed
+  `FrlPhy`, and its DDC bus trait); and piaf 0.7. Each crate's changelog says what changed.
+
 ### Added
 
 - **`spiritlevel` feature** — re-exports [spiritlevel](https://github.com/ashlar-display/spiritlevel)
-  0.1, which chooses a TMDS link: the bit clock ratio, scrambling and the sink's
-  `TMDS_Config`. With `display-types` enabled too, its `SinkTmdsFacts` converts from
-  `HdmiForumSinkCap`. Part of `full`, and of the `no_std` build in CI.
+  0.2, the TMDS link bring-up: it chooses the link (the bit clock ratio, scrambling and the
+  sink's `TMDS_Config`) and brings it up, tears it down and checks it after a reconnect,
+  over hdmi-hal's PHY traits and the sink's SCDC. With `display-types` enabled too, its
+  `SinkTmdsFacts` converts from `HdmiForumSinkCap`; with `culvert` enabled too, culvert's
+  `Scdc` implements its `TmdsScdc`. Part of `full`, and of the `no_std` build in CI.
 - **docs.rs marks each re-exported crate with the feature that enables it** (the `doc_cfg`
   badge, enabled only in docs.rs builds).
 
