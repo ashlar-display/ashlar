@@ -66,9 +66,9 @@ dependencies = [
 
 [[package]]
 name = "culvert"
-version = "0.3.1"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4e1239ecddaefb62049bfd6eefac04bf6559da995adc60d48199809440af83cd"
+checksum = "65030f4f1970b2f559bb465d4bbda1ddcafba369e0c8c66aff97eaa732094e51"
 dependencies = [
  "display-types",
  "hdmi-hal",
@@ -77,9 +77,9 @@ dependencies = [
 
 [[package]]
 name = "culvert-async"
-version = "0.3.1"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0ef0c466dbdf26768839be40598ab75a8ea510139453fbb958f356d29eccc5f3"
+checksum = "116a17721f3b5483f69bdbe47c2e1e3c8e692676ba65360880a26e57d61ffde2"
 dependencies = [
  "culvert",
  "hdmi-hal-async",
@@ -97,18 +97,18 @@ dependencies = [
 
 [[package]]
 name = "hdmi-hal"
-version = "0.6.1"
+version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2c13e178df1c74a1d2949169340bc915ffe2236051c0f75acd95fbd43a7433de"
+checksum = "4f6f586de7562829805e036c9d35d5ccc67949933c6112240c03fbb6e30e0f09"
 dependencies = [
  "display-types",
 ]
 
 [[package]]
 name = "hdmi-hal-async"
-version = "0.3.1"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d1e16291988bf1db6ccc1c99bcb353f3f6b18e80ba9c1b90de908bbd59f033f1"
+checksum = "223a44cef55d956a2d7b333dbd30734b2571a1aea884e6fe6b99780f41eb8017"
 dependencies = [
  "display-types",
  "hdmi-hal",
@@ -116,14 +116,15 @@ dependencies = [
 
 [[package]]
 name = "hdmi-hal-i2c-dev"
-version = "0.4.0"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "68a43d1dc54aaa9ea26fbe2004fc60a15e7a268ac201aed5f356fa77efe6fbe1"
+checksum = "d3557086105b27df40eaf011d6002d9c1ee9f8f7c098bfba670a9dfe6b456381"
 dependencies = [
  "display-types",
  "hdmi-hal",
  "i2cdev",
  "libc",
+ "piaf",
 ]
 
 [[package]]
@@ -157,9 +158,9 @@ dependencies = [
 
 [[package]]
 name = "piaf"
-version = "0.6.0"
+version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3d2b6cb88e26e5b76d7928a9a535ca9bee546d57b1fbf023bac1ac10f2d4758d"
+checksum = "4ae048a4e0bd9de5acc06d4c5ed23685dfa788ee470731ef82ca248fc41557f6"
 dependencies = [
  "bitflags 2.13.2",
  "display-types",
@@ -168,9 +169,9 @@ dependencies = [
 
 [[package]]
 name = "plumbob"
-version = "0.4.1"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5158bdcaf640ef23ac15bcb5f3843cf31bbb50a0e5633f1c57898faf3c67ba40"
+checksum = "07cef20b7ce22a0cf4e8c0dda920f1a189c6d9ab78dc3a4a69d60223d1525525"
 dependencies = [
  "display-types",
  "hdmi-hal",
@@ -178,9 +179,9 @@ dependencies = [
 
 [[package]]
 name = "plumbob-async"
-version = "0.3.1"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aecd6ed8247d687f112dc9d4c1b1bdcaa5e06e7db48d5d2c536a859da257d0ff"
+checksum = "dd573d3968f88edeb72646874efda086ec8f807764bec4e9a893e714c42e0773"
 dependencies = [
  "display-types",
  "hdmi-hal-async",
@@ -207,18 +208,20 @@ dependencies = [
 
 [[package]]
 name = "spiritlevel"
-version = "0.1.0"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "918a9b9f30df53b04c211dcd2f67c76f993abd4957380f2d73a5dfbba6015cae"
+checksum = "1db06de72cf12a44a71d658ded35448c86f6301979ac7a11d721b0c0b00ededb"
 dependencies = [
+ "culvert",
  "display-types",
+ "hdmi-hal",
 ]
 
 [[package]]
 name = "syn"
-version = "3.0.9"
+version = "3.0.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d78c8dee4c7bf0e14673097256fed6142ce9d3b85a408189d07482442145823b"
+checksum = "4ae9ccbea3a7b0b09443036490c8f34a8b1b760fd345e5c0dae0aac718faea79"
 dependencies = [
  "proc-macro2",
  "quote",

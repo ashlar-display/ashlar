@@ -14,12 +14,12 @@ pulls in exactly the layers you need:
 
 ```toml
 [dependencies]
-ashlar = { version = "0.3", features = ["piaf", "concordance"] }
+ashlar = { version = "0.4", features = ["piaf", "concordance"] }
 ```
 
 Each crate is then reachable under its own name, `ashlar::piaf`, `ashlar::concordance` and
-so on, in the version range this release of `ashlar` requires (for example any piaf 0.6.x
-from 0.6.0).
+so on, in the version range this release of `ashlar` requires (for example any piaf 0.7.x
+from 0.7.0).
 
 ## Features
 
@@ -33,15 +33,17 @@ from 0.6.0).
 | `culvert-async` | [culvert-async](https://crates.io/crates/culvert-async) | Async companion to culvert |
 | `plumbob` | [plumbob](https://crates.io/crates/plumbob) | FRL link training |
 | `plumbob-async` | [plumbob-async](https://crates.io/crates/plumbob-async) | Async companion to plumbob |
-| `spiritlevel` | [spiritlevel](https://crates.io/crates/spiritlevel) | TMDS link parameters: clock ratio, scrambling, the sink's `TMDS_Config` |
-| `hdmi-hal` | [hdmi-hal](https://crates.io/crates/hdmi-hal) | `ScdcTransport` and `HdmiPhy` traits |
+| `spiritlevel` | [spiritlevel](https://crates.io/crates/spiritlevel) | TMDS link bring-up: clock ratio, scrambling and the sink's configuration |
+| `hdmi-hal` | [hdmi-hal](https://crates.io/crates/hdmi-hal) | Hardware abstraction traits: DDC bus, SCDC transport, TMDS and FRL PHYs, power, clock and delay |
 | `hdmi-hal-async` | [hdmi-hal-async](https://crates.io/crates/hdmi-hal-async) | Async companion to hdmi-hal |
 | `hdmi-hal-i2c-dev` | [hdmi-hal-i2c-dev](https://crates.io/crates/hdmi-hal-i2c-dev) | Linux userspace backend over `/dev/i2c-N` |
 
 `full` enables every crate. With `culvert` and `plumbob` both enabled, culvert's `Scdc`
 implements plumbob's `ScdcClient`, so it drives `FrlTrainer` directly; the same holds for
 `culvert-async` and `plumbob-async`. With `display-types` and `spiritlevel` both enabled,
-spiritlevel's `SinkTmdsFacts` converts from display-types' `HdmiForumSinkCap`.
+spiritlevel's `SinkTmdsFacts` converts from display-types' `HdmiForumSinkCap`, and with
+`culvert` and `spiritlevel` both enabled, culvert's `Scdc` implements spiritlevel's
+`TmdsScdc`, so it drives the TMDS bring-up directly.
 
 ## `no_std` builds
 
@@ -55,7 +57,7 @@ target.
 - **Code of its own** — `ashlar` adds nothing to the crates it re-exports; each crate's own
   documentation describes it.
 - **Choosing versions per crate** — a release of `ashlar` requires one semver-compatible
-  series of each crate (piaf 0.6.x, say). To combine others, depend on the crates
+  series of each crate (piaf 0.7.x, say). To combine others, depend on the crates
   directly.
 
 ## Documentation
