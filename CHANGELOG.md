@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-11-22
+
 ### Breaking changes
 
 - **Requires the crates' releases on hdmi-hal 0.7**: hdmi-hal 0.7, hdmi-hal-async 0.4,
