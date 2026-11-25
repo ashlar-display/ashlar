@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **`spiritlevel-async` feature** — re-exports
+  [spiritlevel-async](https://github.com/ashlar-display/spiritlevel-async) 0.1, the async
+  companion to spiritlevel: it runs spiritlevel's TMDS procedures over hdmi-hal-async's
+  traits. With `display-types` enabled too, its sink facts convert from `HdmiForumSinkCap`;
+  with `culvert-async` enabled too, culvert-async's `Scdc` implements its `TmdsScdc`. Part
+  of `full`, and of the `no_std` build in CI.
+
+### Changed
+
+- **Every feature names its crate with `dep:`**: `piaf`, `concordance`, `cartouche`,
+  `culvert-async`, `hdmi-hal`, `hdmi-hal-async` and `hdmi-hal-i2c-dev` were features only
+  implicitly, because their optional dependencies were; they are now declared, with the same
+  names, so every feature in `Cargo.toml` is one the crate means to offer.
+- **The crates.io description says "TMDS link bring-up"**, as spiritlevel has done since
+  0.2, where it said "TMDS link parameters".
+
 ## [0.4.0] - 2026-11-22
 
 ### Breaking changes

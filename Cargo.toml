@@ -3,7 +3,7 @@ name = "ashlar"
 version = "0.4.0"
 edition = "2024"
 rust-version = "1.85"
-description = "A display connection stack in Rust: EDID parsing, HDMI 2.1 mode negotiation, InfoFrames, SCDC, FRL link training and TMDS link parameters"
+description = "A display connection stack in Rust: EDID parsing, HDMI 2.1 mode negotiation, InfoFrames, SCDC, FRL link training and TMDS link bring-up"
 readme = "README.md"
 license = "MPL-2.0"
 repository = "https://github.com/ashlar-display/ashlar"
@@ -35,16 +35,31 @@ alloc = [
     "plumbob?/alloc",
     "plumbob-async?/alloc",
 ]
+# One feature per crate, each naming its dependency with `dep:`, so no optional dependency
+# becomes a feature implicitly.
+piaf = ["dep:piaf"]
+concordance = ["dep:concordance"]
+cartouche = ["dep:cartouche"]
+hdmi-hal = ["dep:hdmi-hal"]
+hdmi-hal-async = ["dep:hdmi-hal-async"]
+hdmi-hal-i2c-dev = ["dep:hdmi-hal-i2c-dev"]
 # With culvert enabled too, culvert's `Scdc` drives plumbob's `FrlTrainer` (and
 # culvert-async's drives plumbob-async's).
 plumbob = ["dep:plumbob", "culvert?/plumbob"]
 plumbob-async = ["dep:plumbob-async", "culvert-async?/plumbob-async"]
-# With display-types enabled too, spiritlevel's sink facts convert from display-types'
-# `HdmiForumSinkCap`.
-display-types = ["dep:display-types", "spiritlevel?/display-types"]
+# With display-types enabled too, spiritlevel's and spiritlevel-async's sink facts convert
+# from display-types' `HdmiForumSinkCap`.
+display-types = [
+    "dep:display-types",
+    "spiritlevel?/display-types",
+    "spiritlevel-async?/display-types",
+]
 spiritlevel = ["dep:spiritlevel"]
-# With spiritlevel enabled too, culvert's `Scdc` implements spiritlevel's `TmdsScdc`.
+spiritlevel-async = ["dep:spiritlevel-async"]
+# With spiritlevel enabled too, culvert's `Scdc` implements spiritlevel's `TmdsScdc` (and
+# with spiritlevel-async, culvert-async's implements spiritlevel-async's).
 culvert = ["dep:culvert", "spiritlevel?/culvert"]
+culvert-async = ["dep:culvert-async", "spiritlevel-async?/culvert-async"]
 full = [
     "display-types",
     "piaf",
@@ -55,6 +70,7 @@ full = [
     "plumbob",
     "plumbob-async",
     "spiritlevel",
+    "spiritlevel-async",
     "hdmi-hal",
     "hdmi-hal-async",
     "hdmi-hal-i2c-dev",
@@ -70,6 +86,7 @@ culvert-async = { version = "0.4.0", optional = true, default-features = false }
 plumbob = { version = "0.5.0", optional = true, default-features = false }
 plumbob-async = { version = "0.4.0", optional = true, default-features = false }
 spiritlevel = { version = "0.2.0", optional = true, default-features = false }
+spiritlevel-async = { version = "0.1.0", optional = true, default-features = false }
 hdmi-hal = { version = "0.7.0", optional = true, default-features = false }
 hdmi-hal-async = { version = "0.4.0", optional = true, default-features = false }
 hdmi-hal-i2c-dev = { version = "0.5.0", optional = true }

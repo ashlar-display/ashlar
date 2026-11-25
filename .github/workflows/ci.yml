@@ -82,7 +82,7 @@ jobs:
       - name: Build (no_std)
         run: >-
           cargo build --locked --no-default-features --target thumbv7em-none-eabi
-          --features display-types,piaf,concordance,cartouche,culvert,culvert-async,plumbob,plumbob-async,spiritlevel,hdmi-hal,hdmi-hal-async
+          --features display-types,piaf,concordance,cartouche,culvert,culvert-async,plumbob,plumbob-async,spiritlevel,spiritlevel-async,hdmi-hal,hdmi-hal-async
 
   # cargo-msrv reads the MSRV from Cargo.toml's rust-version and runs the checks on that
   # toolchain. Built from crates.io with --locked at a pinned version, not install-action:
@@ -126,4 +126,4 @@ jobs:
         run: >
           cargo msrv verify --target thumbv7em-none-eabi
           -- cargo build --locked --no-default-features --target thumbv7em-none-eabi
-          --features display-types,piaf,concordance,cartouche,culvert,culvert-async,plumbob,plumbob-async,spiritlevel,hdmi-hal,hdmi-hal-async
+          --features display-types,piaf,concordance,cartouche,culvert,culvert-async,plumbob,plumbob-async,spiritlevel,spiritlevel-async,hdmi-hal,hdmi-hal-async

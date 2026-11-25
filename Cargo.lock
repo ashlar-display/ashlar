@@ -18,6 +18,7 @@ dependencies = [
  "plumbob",
  "plumbob-async",
  "spiritlevel",
+ "spiritlevel-async",
 ]
 
 [[package]]
@@ -66,9 +67,9 @@ dependencies = [
 
 [[package]]
 name = "culvert"
-version = "0.4.0"
+version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "65030f4f1970b2f559bb465d4bbda1ddcafba369e0c8c66aff97eaa732094e51"
+checksum = "20d9a3179daaf798a93f6023bdbf5f6361f529cb711534b0b7b256fdf80c835e"
 dependencies = [
  "display-types",
  "hdmi-hal",
@@ -77,9 +78,9 @@ dependencies = [
 
 [[package]]
 name = "culvert-async"
-version = "0.4.0"
+version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "116a17721f3b5483f69bdbe47c2e1e3c8e692676ba65360880a26e57d61ffde2"
+checksum = "65c181efcb8328d5e2234a11090c45310d053b61cfc13a31449bb19e96f7da53"
 dependencies = [
  "culvert",
  "hdmi-hal-async",
@@ -215,6 +216,17 @@ dependencies = [
  "culvert",
  "display-types",
  "hdmi-hal",
+]
+
+[[package]]
+name = "spiritlevel-async"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "981938247d3ad2f3fbcea67c8b9362c16971736fcd4bab8dbdc292bc208bf377"
+dependencies = [
+ "culvert-async",
+ "hdmi-hal-async",
+ "spiritlevel",
 ]
 
 [[package]]
