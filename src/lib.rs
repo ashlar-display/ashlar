@@ -23,6 +23,7 @@
 //! | `plumbob` | [`plumbob`] | FRL link training |
 //! | `plumbob-async` | [`plumbob_async`] | Async companion to plumbob |
 //! | `spiritlevel` | [`spiritlevel`] | TMDS link bring-up: clock ratio, scrambling and the sink's configuration |
+//! | `spiritlevel-async` | [`spiritlevel_async`] | Async companion to spiritlevel |
 //! | `hdmi-hal` | [`hdmi_hal`] | Hardware abstraction traits: DDC bus, SCDC transport, TMDS and FRL PHYs, power, clock and delay |
 //! | `hdmi-hal-async` | [`hdmi_hal_async`] | Async companion to hdmi-hal |
 //! | `hdmi-hal-i2c-dev` | [`hdmi_hal_i2c_dev`] | Linux userspace backend over `/dev/i2c-N` |
@@ -34,7 +35,8 @@
 //! `display-types` and `spiritlevel` both enabled, spiritlevel's `SinkTmdsFacts` converts
 //! from display-types' `HdmiForumSinkCap`, and with `culvert` and `spiritlevel` both
 //! enabled, culvert's `Scdc` implements spiritlevel's `TmdsScdc`, so it drives the TMDS
-//! bring-up directly.
+//! bring-up directly; the same holds for `display-types`, `culvert-async` and
+//! `spiritlevel-async`.
 //!
 //! See the [Ashlar website](https://ashlar-display.org) for the full stack.
 
@@ -69,6 +71,9 @@ pub use plumbob_async;
 
 #[cfg(feature = "spiritlevel")]
 pub use spiritlevel;
+
+#[cfg(feature = "spiritlevel-async")]
+pub use spiritlevel_async;
 
 #[cfg(feature = "hdmi-hal")]
 pub use hdmi_hal;
