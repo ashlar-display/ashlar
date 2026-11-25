@@ -1,6 +1,6 @@
 [package]
 name = "ashlar"
-version = "0.4.0"
+version = "0.4.1"
 edition = "2024"
 rust-version = "1.85"
 description = "A display connection stack in Rust: EDID parsing, HDMI 2.1 mode negotiation, InfoFrames, SCDC, FRL link training and TMDS link bring-up"
