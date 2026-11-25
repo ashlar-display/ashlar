@@ -34,6 +34,7 @@ from 0.7.0).
 | `plumbob` | [plumbob](https://crates.io/crates/plumbob) | FRL link training |
 | `plumbob-async` | [plumbob-async](https://crates.io/crates/plumbob-async) | Async companion to plumbob |
 | `spiritlevel` | [spiritlevel](https://crates.io/crates/spiritlevel) | TMDS link bring-up: clock ratio, scrambling and the sink's configuration |
+| `spiritlevel-async` | [spiritlevel-async](https://crates.io/crates/spiritlevel-async) | Async companion to spiritlevel |
 | `hdmi-hal` | [hdmi-hal](https://crates.io/crates/hdmi-hal) | Hardware abstraction traits: DDC bus, SCDC transport, TMDS and FRL PHYs, power, clock and delay |
 | `hdmi-hal-async` | [hdmi-hal-async](https://crates.io/crates/hdmi-hal-async) | Async companion to hdmi-hal |
 | `hdmi-hal-i2c-dev` | [hdmi-hal-i2c-dev](https://crates.io/crates/hdmi-hal-i2c-dev) | Linux userspace backend over `/dev/i2c-N` |
@@ -43,7 +44,8 @@ implements plumbob's `ScdcClient`, so it drives `FrlTrainer` directly; the same 
 `culvert-async` and `plumbob-async`. With `display-types` and `spiritlevel` both enabled,
 spiritlevel's `SinkTmdsFacts` converts from display-types' `HdmiForumSinkCap`, and with
 `culvert` and `spiritlevel` both enabled, culvert's `Scdc` implements spiritlevel's
-`TmdsScdc`, so it drives the TMDS bring-up directly.
+`TmdsScdc`, so it drives the TMDS bring-up directly; the same holds for `display-types`,
+`culvert-async` and `spiritlevel-async`.
 
 ## `no_std` builds
 
